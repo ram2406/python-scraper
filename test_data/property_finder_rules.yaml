@@ -1,0 +1,16 @@
+- grouping: menu_items
+  selector: .card-list article.card:not(.card--community-expert)
+  children:
+    - selector: a
+      children:
+      - mapping: url
+        attribute_name: href
+
+      - mapping: Source Link
+        attribute_name: href
+        regex_sub_value: [ '^(.*)$', 'https://www.propertyfinder.ae\1' ]
+      - mapping: ID
+        attribute_name: href
+        regex_sub_value: ['.*?(\d+).html', '\1']
+    - selector: .card-specifications__location-text
+      mapping: Address
